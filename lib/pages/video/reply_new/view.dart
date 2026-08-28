@@ -356,7 +356,7 @@ class _ReplyPageState extends CommonRichTextPubPageState<ReplyPage> {
                     if (res != null) {
                       final path =
                           '$tmpDirPath/${Utils.generateRandomString(8)}.png';
-                      await File(path).writeAsBytes(res);
+                      await File(path).writeAsBytes((await res.toByteData(format: .png))!.buffer.asUint8List());
                       imageList.add(FilePicModel(path: path));
                     } else {
                       debugPrint('null screenshot');
