@@ -1,4 +1,5 @@
 import 'dart:math' show max;
+import 'package:PiliPlus/common/widgets/chat_panel_compat.dart';
 
 import 'package:PiliPlus/common/style.dart';
 import 'package:PiliPlus/common/widgets/button/icon_button.dart';
