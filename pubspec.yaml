@@ -88,7 +88,7 @@ dependencies:
   extended_nested_scroll_view:
     git:
       url: https://github.com/bggRGjQaUbCoE/extended_nested_scroll_view.git
-      ref: mod
+      ref: dev
   # 上拉加载
   # loading_more_list: ^7.1.0
   # 下拉刷新
@@ -165,10 +165,7 @@ dependencies:
   # system_proxy: ^0.1.0
   # pip
   # floating: ^3.0.0
-  floating:
-    git:
-      url: https://github.com/bggRGjQaUbCoE/floating.git
-      ref: version-3
+  floating: ^3.0.0
   # html解析
   html: ^0.15.4
   # html渲染
@@ -297,7 +294,7 @@ dependency_overrides:
     git:
       url: https://github.com/bggRGjQaUbCoE/media-kit.git
       path: libs/ios/media_kit_libs_ios_video
-      ref: dev
+      ref: version_1.2.5
   font_awesome_flutter: 10.9.0
 
 dev_dependencies:
