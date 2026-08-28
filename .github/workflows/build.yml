@@ -201,6 +201,11 @@ jobs:
               shell: pwsh
               run: lib/scripts/build.ps1 android
 
+            - name: Pub get (populate cache for patching)
+              run: flutter pub get
+
+            - name: Patch floating plugin (drop removed v1 Registrar import)
+              run: sed -i "/io.flutter.plugin.common.PluginRegistry.Registrar/d" $HOME/.pub-cache/hosted/pub.dev/floating-3.0.0/android/src/main/kotlin/eu/wroblewscy/marcin/floating/floating/FloatingPlugin.kt
             - name: Flutter Build TV Release Apk
               if: ${{ github.event_name == 'workflow_dispatch' }}
               run: flutter build apk --flavor tv -t lib/main_tv.dart --release --split-per-abi --dart-define-from-file=pili_release.json --pub
