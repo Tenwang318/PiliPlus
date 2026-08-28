@@ -207,9 +207,7 @@ class PlPlayerController with BlockConfigMixin {
       isLive ? _enableShowLiveDanmaku : _enableShowDanmaku;
 
   late final bool autoPiP = Pref.autoPiP;
-  bool get isPipMode =>
-      (Platform.isAndroid && Floating().isPipMode) ||
-      (PlatformUtils.isDesktop && isDesktopPip);
+  bool get isPipMode => PlatformUtils.isDesktop && isDesktopPip;
   late bool isDesktopPip = false;
   late Rect _lastWindowBounds;
 
@@ -782,11 +780,6 @@ class PlPlayerController with BlockConfigMixin {
 
     final player = await Player.create(
       configuration: PlayerConfiguration(
-        bufferSize: PlatformUtils.isTV
-            ? 2 * 1024 * 1024
-            : Pref.expandBuffer
-                ? (isLive ? 64 * 1024 * 1024 : 32 * 1024 * 1024)
-                : (isLive ? 16 * 1024 * 1024 : 4 * 1024 * 1024),
         logLevel: PlatformUtils.isTV
             ? .warn
             : kDebugMode ? .warn : .error,
@@ -1756,7 +1749,7 @@ class PlPlayerController with BlockConfigMixin {
 
   void takeScreenshot() {
     SmartDialog.showToast('截图中');
-    videoPlayerController?.screenshot(format: .png).then((value) {
+    videoPlayerController?.screenshot().then((value) {
       if (value != null) {
         SmartDialog.showToast('点击弹窗保存截图');
         showDialog(
