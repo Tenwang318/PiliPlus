@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'package:PiliPlus/common/widgets/chat_panel_compat.dart';
 import 'dart:io';
 import 'dart:math' show max;
 
