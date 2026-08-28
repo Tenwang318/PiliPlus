@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'package:PiliPlus/common/widgets/chat_panel_compat.dart';
 import 'dart:io';
 import 'dart:math' show max;
 
@@ -28,7 +29,9 @@ abstract class CommonPublishPageState<T extends CommonPublishPage>
     extends State<T>
     with WidgetsBindingObserver {
   late final FocusNode focusNode;
-  late final controller = ChatBottomPanelContainerController<PanelType>();
+  late final controller = ChatBottomPanelContainerController<PanelType>(
+    uiScale: Pref.uiScale,
+  );
   TextEditingController get editController;
 
   final Rx<PanelType> panelType = PanelType.none.obs;
