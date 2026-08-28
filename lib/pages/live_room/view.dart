@@ -205,13 +205,15 @@ class _LiveRoomPageState extends State<LiveRoomPage>
   late double maxWidth;
   late double maxHeight;
   bool isWindowMode = false;
+  // hosted floating package no longer exposes isPipMode; compact PiP layout disabled in TV flavor
+  static const bool _isAndroidPip = false;
   late EdgeInsets padding;
   late bool isPortrait;
 
   @override
   Widget build(BuildContext context) {
     Widget child;
-    if (Platform.isAndroid && Floating().isPipMode) {
+    if (Platform.isAndroid && _isAndroidPip) {
       child = videoPlayerPanel(
         isFullScreen,
         width: maxWidth,
