@@ -187,7 +187,7 @@ dependencies:
   chat_bottom_container:
     git:
       url: https://github.com/bggRGjQaUbCoE/flutter_chat_packages.git
-      ref: dba2bf10db4a6f89564d9be63ce17b18f0f7e3e5
+      ref: c4f917aa5e824dd70dcc120cf807b9e83002825e
       path: packages/chat_bottom_container
   image_picker: ^1.1.2
   intl: ^0.20.2
