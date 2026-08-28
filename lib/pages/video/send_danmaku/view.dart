@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'package:PiliPlus/common/widgets/chat_panel_compat.dart';
 
 import 'package:PiliPlus/common/widgets/button/icon_button.dart';
 import 'package:PiliPlus/common/widgets/view_safe_area.dart';
