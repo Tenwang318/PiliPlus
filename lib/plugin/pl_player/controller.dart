@@ -1749,7 +1749,8 @@ class PlPlayerController with BlockConfigMixin {
 
   void takeScreenshot() {
     SmartDialog.showToast('截图中');
-    videoPlayerController?.screenshot().then((value) {
+    videoPlayerController?.screenshot().then((image) async {
+      final value = (await image?.toByteData(format: .png))?.buffer.asUint8List();
       if (value != null) {
         SmartDialog.showToast('点击弹窗保存截图');
         showDialog(
